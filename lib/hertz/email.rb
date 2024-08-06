@@ -8,10 +8,12 @@ require 'hertz/email/version'
 module Hertz
   module Email
     class << self
-      mattr_writer :base_mailer
-
       def base_mailer
         (@base_mailer || '::ApplicationMailer').constantize
+      end
+
+      def base_mailer=(base_mailer)
+        @base_mailer = base_mailer
       end
 
       def configure
